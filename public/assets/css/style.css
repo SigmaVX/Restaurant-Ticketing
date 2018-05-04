@@ -1,0 +1,77 @@
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+form{
+    font-family: 'Maven Pro', sans-serif;
+}
+
+h1{
+    font-size: 100px;
+    background: rgba(200,200,200,.8);
+    font-family: 'Cinzel', serif;
+    padding: 30px;
+    margin-bottom: 55px;
+}
+
+h2{
+    font-size: 50px;
+    font-family: 'Cinzel', serif;
+    padding-top: 20px;
+}
+
+label{
+    font-weight: 700;
+    font-size: 22px;
+}
+
+
+tr{
+    background-color: #eeeeee;
+    margin-bottom: 0px;
+    
+}
+
+.btn{
+    background-color: #539642;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.btn:hover{
+    background-color: #f0e480;
+    color: #539642;
+}
+
+.card{
+    border-radius: 0px;
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: -17px;
+    border: none;
+}
+
+.card-header{
+    background-color: #ab9d95;
+    color: #222222;
+    font-size: 30px;
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: 1000;
+    border-radius: 0px;
+}
+
+.modal-header{
+    background-color: #f0e480;
+    color: #222222;
+}
+
+#splash-box{
+    width: 100%;
+    padding-top: 5%;
+    background-image: url("../images/soup.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+

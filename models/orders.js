@@ -1,7 +1,6 @@
 // Import the ORM To Build Functions
 var orm = require("../config/orm.js");
 
-
 var orders = {
   openOrders: function(cb) {
     orm.getSome("order_filled", false, function(result) {
@@ -23,7 +22,13 @@ var orders = {
       cb(result);
     });
   },
+  getPriorityOrders: function(cb) {
+  orm.priorityOrders(function(result) {
+      cb(result);
+    });
+  }
+
 };
 
-// Export the database functions for the controller (catsController.js).
+// Export For Controller
 module.exports = orders;

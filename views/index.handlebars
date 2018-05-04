@@ -1,196 +1,213 @@
-
-    <h1 class="col-12 text-center splash-text">Order Tracker</h1>
-  
-    <form>
-        <h2 class="col-12 text-center section-header">Enter Order Details</h2>
-        <div class="form-row justify-content-around">
-            <div class="form-group col-md-2 col-12">
-                <label for="">Enter Menu Item:</label>
-                <select class="form-control" id="food-item">
-                    <option data="Nachos">Nachos</option>
-                    <option data="Tex Mex Burger">Tex Mex Burger</option>
-                    <option data="Port Onion Soup">Port Onion Soup</option>
-                    <option data="Caesar Salad">Caesar Salad</option>
-                    <option data="BBQ Pizza">BBQ Pizza</option>
-                    <option data="Milk Shake">Milk Shake</option>
-                </select>
+    <div class="row no-gutters" id="splash-box">
+        <h1 class="col-12 text-center splash-text">Order Tracker</h1>
+    </div>
+    <div class="row no-gutters">
+        <form class="col-12">
+            <h2 class="col-12 text-center section-header">Enter New Order</h2>
+            <div class="form-row justify-content-around">
+                <div class="form-group col-md-2 col-12 text-center">
+                    <label for="">Menu Item:</label>
+                    <select class="form-control" id="food-item">
+                        <option data="Nachos">Nachos</option>
+                        <option data="Tex Mex Burger">Tex Mex Burger</option>
+                        <option data="Port Onion Soup">Port Onion Soup</option>
+                        <option data="Caesar Salad">Caesar Salad</option>
+                        <option data="BBQ Pizza">BBQ Pizza</option>
+                        <option data="Milk Shake">Milk Shake</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2 col-12 text-center">
+                    <label for="">Quantity:</label>
+                    <input type="order-quantity" class="form-control" id="order-quantity" placeholder="Number">
+                </div>
+                <div class="form-group col-md-2 col-12 text-center">
+                    <label for="">Check Number:</label>
+                    <input type="check-number" class="form-control" id="check-number" placeholder="D1923">
+                </div>
+                <div class="form-group col-md-2 col-12 text-center">
+                    <label for="">Table Number:</label>
+                    <select class="form-control" id="table-number">
+                        <option data="1">1</option>
+                        <option data="2">2</option>
+                        <option data="3">3</option>
+                        <option data="4">4</option>
+                        <option data="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2 col-12 text-center">
+                    <label for="">Submit Order: </label>
+                    <button type="submit" class="btn col-12" id="order-submit">Submit</button>
+                </div>
             </div>
-            <div class="form-group col-md-2 col-12">
-                <label for="">Enter Quantity:</label>
-                <input type="order-quantity" class="form-control" id="order-quantity" placeholder="Number">
-            </div>
-            <div class="form-group col-md-2 col-12">
-                <label for="">Check Number:</label>
-                <input type="check-number" class="form-control" id="check-number" placeholder="D1923">
-            </div>
-            <div class="form-group col-md-2 col-12">
-                <label for="">Table Number:</label>
-                <select class="form-control" id="table-number">
-                    <option data="1">1</option>
-                    <option data="2">2</option>
-                    <option data="3">3</option>
-                    <option data="4">4</option>
-                    <option data="5">5</option>
-                </select>
-            </div>
-            <div class="form-group col-md-2 col-12">
-                <button type="submit" class="btn col-12" id="order-submit">Submit</button>
-            </div>
-        </div>
-    </form>
-
-    <!-- Open Orders -->
-    <div class="container-fluid">
-        <div class="row card">
-            <div class="card-header text-center"  id="?">
-                All Open Orders
-            </div>
-                <table class="table text-center" id="openOrdersTable" >
-                <thead>
-                    <tr>
-                        <th scope="col">
-                            Food Item
-                        </th>
-                        <th scope="col">
-                            Quantity
-                        </th>
-                        <th scope="col">
-                            Table Number
-                        </th>
-                        <th scope="col">
-                            Check Number
-                        </th>
-                        <th scope="col">
-                            Taken At
-                        </th>
-                        <th scope="col">
-                            Status
-                        </th>
-                    </tr>
-                </thead>
-                <tbody id="openOrderRows">
-                    {{#each openOrderData}}
-                        <tr>
-                            <td>
-                                {{this.menu_item}}
-                            </td>
-                            <td>
-                                {{this.quantity}}
-                            </td>
-                            <td>
-                                {{this.table_number}}
-                            </td>
-                            <td>
-                                {{this.check_number}}
-                            </td>
-                            <td>
-                                {{this.order_time}}
-                            </td>
-                            <td>
-                                <button class="btn done-btn" data="{{this.id}}">Mark Done</button>
-                            </td>
-                        </tr>
-                    {{/each}}
-                </tbody>
-            </table>   
-        </div>
+        </form>
     </div>
 
+    <!-- Open Orders -->
+    <div class="row card no-gutters">
+        <div class="card-header text-center"  id="?">
+            All Open Orders
+        </div>
+            <table class="table text-center" id="openOrdersTable" >
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Food Item
+                    </th>
+                    <th scope="col">
+                        Quantity
+                    </th>
+                    <th scope="col">
+                        Table Number
+                    </th>
+                    <th scope="col">
+                        Check Number
+                    </th>
+                    <th scope="col">
+                        Taken At
+                    </th>
+                    <th scope="col">
+                        Status
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="openOrderRows">
+                {{#each openOrderData}}
+                    <tr>
+                        <td>
+                            {{this.menu_item}}
+                        </td>
+                        <td>
+                            {{this.quantity}}
+                        </td>
+                        <td>
+                            {{this.table_number}}
+                        </td>
+                        <td>
+                            {{this.check_number}}
+                        </td>
+                        <td class="time">
+                            {{this.order_time}}
+                        </td>
+                        <td>
+                            <button class="btn done-btn" data="{{this.id}}">Mark Done</button>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>   
+    </div>
+    
+
      <!-- Partial Table Orders -->
-     <div class="container-fluid">
-            <div class="row card">
-                <div class="card-header text-center"  id="?">
-                    High Priority Orders<br>Partially Completed Tables
-                </div>
-                    <table class="table text-center" id="closedOrdersTable" >
-                    <thead>
-                        <tr>
-                            <th scope="col">
-                                Food Item
-                            </th>
-                            <th scope="col">
-                                Quantity
-                            </th>
-                            <th scope="col">
-                                Table Number
-                            </th>
-                            <th scope="col">
-                                Check Number
-                            </th>
-                            <th scope="col">
-                                Taken At
-                            </th>
-                            <th scope="col">
-                                Closed At
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody id="openOrderRows">
-                     
-                    </tbody>
-                </table>   
-            </div>
+    <div class="row card no-gutters">
+        <div class="card-header text-center"  id="?">
+            High Priority Orders
         </div>
-
-
+            <table class="table text-center" id="closedOrdersTable" >
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Food Item
+                    </th>
+                    <th scope="col">
+                        Quantity
+                    </th>
+                    <th scope="col">
+                        Table Number
+                    </th>
+                    <th scope="col">
+                        Check Number
+                    </th>
+                    <th scope="col">
+                        Taken At
+                    </th>
+                    <th scope="col">
+                        Status
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="openOrderRows">
+                {{#each priorityOrders}}
+                <tr>
+                    <td>
+                        {{this.menu_item}}
+                    </td>
+                    <td>
+                        {{this.quantity}}
+                    </td>
+                    <td>
+                        {{this.table_number}}
+                    </td>
+                    <td>
+                        {{this.check_number}}
+                    </td>
+                    <td class="time">
+                        {{this.order_time}}
+                    </td>
+                    <td>
+                        <button class="btn done-btn" data="{{this.id}}">Mark Done</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>   
+    </div>
+        
      <!-- Closed Orders -->
-     <div class="container-fluid">
-            <div class="row card">
-                <div class="card-header text-center"  id="?">
-                   All Closed Orders
-                </div>
-                    <table class="table text-center" id="closedOrdersTable" >
-                    <thead>
-                        <tr>
-                            <th scope="col">
-                                Food Item
-                            </th>
-                            <th scope="col">
-                                Quantity
-                            </th>
-                            <th scope="col">
-                                Table Number
-                            </th>
-                            <th scope="col">
-                                Check Number
-                            </th>
-                            <th scope="col">
-                                Taken At
-                            </th>
-                            <th scope="col">
-                                Closed At
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody id="closedOrderRows">
-                    {{#each closedOrderData}}
-                        <tr>
-                            <td>
-                                {{this.menu_item}}
-                            </td>
-                            <td>
-                                {{this.quantity}}
-                            </td>
-                            <td>
-                                {{this.table_number}}
-                            </td>
-                            <td>
-                                {{this.check_number}}
-                            </td>
-                            <td>
-                                {{this.order_time}}
-                            </td>
-                            <td>
-                                {{this.filled_time}}
-                            </td>
-                        </tr>
-                    {{/each}}
-                    </tbody>
-                </table>   
-            </div>
+    <div class="row card no-gutters">
+        <div class="card-header text-center"  id="?">
+            All Closed Orders
         </div>
-
-
+            <table class="table text-center" id="closedOrdersTable" >
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Food Item
+                    </th>
+                    <th scope="col">
+                        Quantity
+                    </th>
+                    <th scope="col">
+                        Table Number
+                    </th>
+                    <th scope="col">
+                        Check Number
+                    </th>
+                    <th scope="col">
+                        Taken At
+                    </th>
+                    <th scope="col">
+                        Closed At
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="closedOrderRows">
+            {{#each closedOrderData}}
+                <tr>
+                    <td>
+                        {{this.menu_item}}
+                    </td>
+                    <td>
+                        {{this.quantity}}
+                    </td>
+                    <td>
+                        {{this.table_number}}
+                    </td>
+                    <td>
+                        {{this.check_number}}
+                    </td>
+                    <td class="time">
+                        {{this.order_time}}
+                    </td>
+                    <td class="time">
+                        {{this.filled_time}}
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>   
+    </div>
+    
     <!--Footer Section-->
     <footer class="container-fluid" id="home-footer">
         <div class="row no-gutters align-items-end">
@@ -200,7 +217,6 @@
         </div>
     </footer>
     
-
     <!-- Modal -->
     <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
         <div class="modal-dialog" role="document">

@@ -1,15 +1,9 @@
 // Import MySQL connection.
 var connection = require("./connection.js");
 
-// post new order
-// update an order to close it out
-// display partial orders - table were one is done and another is not
-// display all closed
-// display all open 
-
 var orm = {
   getSome: function(keyName, keyValue, cb) {
-    var sqlString = "SELECT * FROM orders WHERE ?? = ?";
+    var sqlString = "SELECT id, menu_item, quantity, check_number, table_number, DATE_FORMAT(orders.order_time, '%a %l:%i') AS order_time, DATE_FORMAT(orders.filled_time, '%a %l:%i') AS filled_time, order_filled FROM orders WHERE ?? = ?";
     connection.query(sqlString, [keyName, keyValue], function(err, result) {
       if (err) {
         throw err;
@@ -36,7 +30,18 @@ var orm = {
       }
       cb(result);
     });
+  },
+  priorityOrders: function(cb){
+    var sqlString = "SELECT a.filled_time, a.order_filled, b.filled_time, b.order_filled, a.id, a.menu_item, a.quantity, DATE_FORMAT(a.order_time, '%a %l:%i') AS order_time, a.check_number, a.table_number FROM orders a, orders b WHERE a.id <> b.id AND a.table_number = b.table_number AND a.order_filled = false AND b.order_filled = true";
+    console.log(sqlString);
+    connection.query(sqlString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
   }
+
 };
 
 // Export ORM For Models

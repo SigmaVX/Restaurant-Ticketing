@@ -1,3 +1,5 @@
+$(document).ready (function( ) {
+    
 $("#order-submit").on("click", function(event){
     event.preventDefault();
     console.log("clicked");
@@ -46,4 +48,9 @@ $(".done-btn").on("click", function(event){
         console.log("Data Stored: ", data);
         location.reload();
     });
+});
+
+
+
+// Doc Ready Function Close
 });
